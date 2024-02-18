@@ -1,0 +1,40 @@
+.container {
+  max-width: 1600px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  gap: 40px
+}
+
+.grid {
+  display: grid;
+}
+
+.headerCell {
+  display: flex;
+  flex-direction: column;
+
+  & span {
+    padding: 4px;
+  }
+}
+
+.formContainer {
+  align-self: flex-start;
+  width: 70%;
+  min-width: 690px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1.3fr 1fr;
+  align-items: end;
+  gap: 12px;
+
+  & label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
