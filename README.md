@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# Приложение учета чеков на компанию
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Проблема
+_После похода в заведение компанией на выходе получается чек, за который заплатил кто-то один. 
+Было бы удобно иметь сервис, в котором можно поделить чек между людьми._
 
-Currently, two official plugins are available:
+## Пользовательский путь
+Пользователь, "оплативший чек", заходит на страницу и сканирует qr код на чеке.
+Приложение автоматически распознает позиции в чеке и выводит их в таблице. 
+Дублирующиеся позиции выводятся каждая в отдельной строке. 
+Также Пользователь может добавить в чек дополнительные строки в таблицу (например чаевые или групповое такси).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+После этого Пользователь генерирует ссылку для своих друзей и отправляет им.
+Переходя по ссылке, пользователи видят ту же таблицу, но без возможности редактировать,
+они могут только отмечать конкретную строку расходов на 100% или на какую-то часть (в процентах).
+Приложение выводит итоговую сумму для пользователей в зависимости от того, что они отметили.
 
-## Expanding the ESLint configuration
+Для Пользователя, "оплатившего чек", в таблице выводится, кто и какую строчку отметил.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Этапы развития
+- Вывод в таблице
+- Добавление строк в таблицу в ручном варианте
+- Авторизация пользователя (Oauth, telegram)
+- Сохранение таблицы в БД и восстановление
+- История чеков
+- Добавление строк в таблицу через сканирование QR кода
+- Генерация ссылки для других пользователей
+- Сохранение модификаций таблицы пользователями
